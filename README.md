@@ -1,8 +1,9 @@
-# `activeadmin-wysihtml5`
 
-## FORK OF https://github.com/unmantained-activeadmin-plugins/activeadmin-wysihtml5
+_FORK OF https://github.com/unmantained-activeadmin-plugins/activeadmin-wysihtml5_
 
-## IGNORE THIS REPO
+_IGNORE THIS REPO_
+
+# activeadmin-wysihtml5
 
 ## Screenshots
 
@@ -42,25 +43,25 @@ end
 
 ## Options
 
-### `:commands`
+### :commands
 
-* `:all`: all the available commands;
-* `:basic`: bold, italic, ul, ol, link, image, source (default)
-* `:barebone`: bold, italic, link, source
-* an array with one or more of the following symbols: `:bold`, `:italic`, `:underline`, `:ul`, `:ol`, `:outdent`, `:indent`, `:link`, `:image`, `:video`, `:source`
+* `:all` - all the available commands
+* `:basic` - `[:bold, :italic, :underline, :ul, :ol, :outdent, :indent, :link, :source]`
+* `:barebone` - `[:bold, :italic, :link, :source]`
+* an array - `[:bold, :italic, :underline, :ul, :ol, :outdent, :indent, :link, :image, :video, :source]`
+    
+### :blocks
 
-### `:blocks`
+* `:all` - all the available blocks
+* `:basic` - `[:h3, :h4, :h5, :p]`
+* `:barebone` - just p (default);
+* an array - `[:h1, :h2, :h3, :h4, :h5, :h6, :p]`
 
-* `:all`: all the available blocks;
-* `:basic`: just h3, h4, h5, p (default);
-* `:barebone`: just p (default);
-* an array with one or more of the following symbols: `:h1`, `:h2`, `:h3`, `:h4`, `:h5`, `:h6`, `:p`
+### :height
 
-### `:height`
-
-* `:tiny`: 70px;
-* `:small`: 90px;
-* `:medium`: 170px (default);
-* `:large`: 350px;
-* `:huge`: 450px;
+* `:tiny` - 70px;
+* `:small` - 90px;
+* `:medium` - 170px (default);
+* `:large` - 350px;
+* `:huge` - 450px;
 * an integer representing the height of the editor;
