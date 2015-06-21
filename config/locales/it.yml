@@ -31,7 +31,6 @@ it:
           dialog_title: "Inserisci nuova immagine"
           url_title: "Immagine esterna"
           gallery_title: "Galleria"
-          upload_title: "Upload"
           url: "URL:"
           alignment: "Allineamento:"
           default: "Nessuno"

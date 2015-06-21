@@ -30,7 +30,6 @@ pt-BR:
           dialog_title: "Insira uma nova imagem"
           url_title: "Imagem externa"
           gallery_title: "Galeria"
-          upload_title: "Enviar"
           url: "URL:"
           alignment: "Alinhamento:"
           default: "Nenhum"

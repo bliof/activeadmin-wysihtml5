@@ -30,7 +30,6 @@ zh-CN:
           dialog_title: "插入图片"
           url_title: "图片链接"
           gallery_title: "画廊"
-          upload_title: "上传"
           url: "URL："
           alignment: "对齐："
           default: "无"

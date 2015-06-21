@@ -1,6 +1,5 @@
 #= require activeadmin-wysihtml5/wysihtml5.min
 #= require activeadmin-wysihtml5/parser_rules
-#= require activeadmin-wysihtml5/fileuploader
 #= require activeadmin-wysihtml5/jquery.paginate.min
 
 (($) ->
@@ -87,69 +86,25 @@
 
       $toolbar.find('a[data-wysihtml5-command=insertImage]').click ->
         $modal = $editor.find(".modal-image").clone()
-        $uploader = $modal.find('.asset-uploader')
-        $gallery = $modal.find('.assets-container ul')
         $url = $modal.find('[name=url]')
-        $scaler = $modal.find('.input.radio')
         selectedAsset = null
-        $tab_contents = $modal.find("[data-tab]").hide()
-        $tab_handles = $modal.find("[data-tab-handle]").click ->
-          $tab_contents.hide()
-          $tab_contents.filter($(@).attr("href")).show()
-          $tab_handles.removeClass("active")
-          $(@).addClass("active")
-          false
-
-        refreshAssets = ->
-          $gallery.empty()
-
-          $.getJSON '/admin/assets.json', (data) ->
-            $.each data, (i, asset) ->
-              $img = $("<img/>")
-              $img.attr
-                title: "#{asset.dimensions.width}x#{asset.dimensions.height}px"
-                src: asset.thumb_url
-              $a = $("<a/>").attr(href: "#").append($img)
-              $a.click ->
-                $gallery.find("a").removeClass("selected")
-                $a.addClass("selected")
-                selectedAsset = asset
-                false
-              $gallery.append($("<li/>").append($a))
-
-        initUploader = ->
-          uploader = new qq.FileUploader
-            element: $uploader.get(0)
-            action: '/admin/assets.json'
-            onComplete: ->
-              refreshAssets()
-              $tab_handles.eq(1).click()
 
         $modal.find('[data-action=save]').click ->
-          $content = $tab_contents.filter(":visible")
-          el = switch $content.attr("id")
-            when "modal-image-url"
-              src: $content.find("[name=url]").val()
-              class: $content.find("[name=alignment]").val()
-              alt: $content.find("[name=alt]").val()
-              title: $content.find("[name=title]").val()
-            when "modal-image-gallery"
-              scale = $content.find("[name=scale]:checked").val()
-              src: selectedAsset.source_url[scale]
-              class: $content.find("[name=alignment]").val()
-              title: $content.find("[name=title]").val()
-              alt: $content.find("[name=alt]").val()
+          el = {
+            src: $modal.find("[name=url]").val()
+            class: $modal.find("[name=alignment]").val()
+            alt: $modal.find("[name=alt]").val()
+          }
 
-          if el
+          el['title'] = el['alt']
+
+          if el['src']
             editor.currentView.element.focus()
             editor.composer.commands.exec("insertImage", el)
 
         activeButton = $(this).hasClass("wysihtml5-command-active")
         if !activeButton
           $modal.modal()
-          $tab_handles.eq(0).click()
-          refreshAssets()
-          initUploader()
           false
         else
           true
@@ -205,4 +160,3 @@
       )
 
 )(jQuery)
-

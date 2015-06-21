@@ -30,7 +30,6 @@ zh-TW:
           dialog_title: "插入圖片"
           url_title: "圖片"
           gallery_title: "藝廊"
-          upload_title: "上傳"
           url: "圖片網址："
           alignment: "對齊："
           default: "無"

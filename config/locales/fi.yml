@@ -30,7 +30,6 @@ fi:
           dialog_title: "Lisää uusi kuva"
           url_title: "Kuva verkosta"
           gallery_title: "Galleria"
-          upload_title: "Lähetys"
           url: "Web-osoite:"
           alignment: "Keskitys:"
           default: "Ei mitään"

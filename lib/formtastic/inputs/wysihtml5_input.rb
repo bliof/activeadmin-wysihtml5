@@ -1,17 +1,16 @@
 module Formtastic
   module Inputs
     class Wysihtml5Input < Formtastic::Inputs::TextInput
-
       COMMANDS_PRESET = {
-        barebone: [ :bold, :italic, :link, :source ],
-        basic: [ :bold, :italic, :ul, :ol, :link, :image, :source ],
-        all: [ :bold, :italic, :underline, :ul, :ol, :outdent, :indent, :link, :image, :video, :source ]
+        barebone: [:bold, :italic, :link, :source],
+        basic: [:bold, :italic, :underline, :ul, :ol, :outdent, :indent, :link, :source],
+        all: [:bold, :italic, :underline, :ul, :ol, :outdent, :indent, :link, :image, :video, :source]
       }
 
       BLOCKS_PRESET = {
-        barebone: [ :p ],
-        basic: [ :h3, :h4, :h5, :p ],
-        all: [ :h1, :h2, :h3, :h4, :h5, :h6, :p ]
+        barebone: [:p],
+        basic: [:h3, :h4, :h5, :p],
+        all: [:h1, :h2, :h3, :h4, :h5, :h6, :p]
       }
 
       HEIGHT_PRESET = {
@@ -30,15 +29,15 @@ module Formtastic
 
         if blocks.any?
           template.content_tag(:li) do
-            template.content_tag(:div, class: "editor-command blocks-selector") do
-              template.content_tag(:span, I18n.t("wysihtml5.block_style")) <<
+            template.content_tag(:div, class: 'editor-command blocks-selector') do
+              template.content_tag(:span, I18n.t('wysihtml5.block_style')) <<
               template.content_tag(:ul) do
                 blocks.map do |block|
                   template.content_tag(:li) do
                     template.content_tag(
                       :a,
                       I18n.t("wysihtml5.blocks.#{block}", default: block.to_s.titleize),
-                      href: "javascript:void(0);",
+                      href: 'javascript:void(0);',
                       data: {
                         wysihtml5_command: 'formatBlock',
                         wysihtml5_command_value: block
@@ -49,18 +48,18 @@ module Formtastic
             end
           end
         else
-          "".html_safe
+          ''.html_safe
         end
       end
 
       def toolbar_commands
         command_groups = [
-          [ :bold, :italic, :underline ],
-          [ :ul, :ol, :outdent, :indent ],
-          [ :link ],
-          [ :image ],
-          [ :video ],
-          [ :source ]
+          [:bold, :italic, :underline],
+          [:ul, :ol, :outdent, :indent],
+          [:link],
+          [:image],
+          [:video],
+          [:source]
         ]
         command_mapper = {
           link: 'createLink',
@@ -84,7 +83,7 @@ module Formtastic
               title = I18n.t("wysihtml5.command.#{command}", default: command.to_s.titleize)
               commands << template.content_tag(
                 :a,
-                href: "javascript:void(0)",
+                href: 'javascript:void(0)',
                 class: "editor-command #{command}",
                 title: title,
                 data: (command == :source ? {wysihtml5_action: wysihtml5_command} : { wysihtml5_command: wysihtml5_command })
@@ -150,10 +149,6 @@ module Formtastic
                 <label>#{I18n.t("wysihtml5.dialog.link.title")}</label>
                 <input type="text" name="title">
               </div>
-              <div class="input string">
-                <label>#{I18n.t("wysihtml5.dialog.link.rel")}</label>
-                <input type="text" name="rel">
-              </div>
               <div class="input boolean">
                 <label>
                   <input type="checkbox" name="blank" /> #{I18n.t("wysihtml5.dialog.link.blank")}
@@ -191,11 +186,6 @@ module Formtastic
             #{I18n.t("wysihtml5.dialog.image.dialog_title")}
           </div>
           <div class="modal-content">
-            <ul class="tabs">
-              <li><a data-tab-handle="1" href="#modal-image-url">#{I18n.t("wysihtml5.dialog.image.url_title")}</a></li>
-              <li><a data-tab-handle="1" href="#modal-image-gallery">#{I18n.t("wysihtml5.dialog.image.gallery_title")}</a></li>
-              <li><a data-tab-handle="1" href="#modal-image-upload">#{I18n.t("wysihtml5.dialog.image.upload_title")}</a></li>
-            </ul>
             <div data-tab="1" id="modal-image-url">
               <div class="input string">
                 <label>#{I18n.t("wysihtml5.dialog.image.url")}</label>
@@ -205,10 +195,6 @@ module Formtastic
                 <label>#{I18n.t("wysihtml5.dialog.image.alt")}</label>
                 <input type="text" name="alt" />
               </div>
-              <div class="input string">
-                <label>#{I18n.t("wysihtml5.dialog.image.title")}</label>
-                <input type="text" name="title" />
-              </div>
               <div class="input select">
                 <label>#{I18n.t("wysihtml5.dialog.image.alignment")}</label>
                 <select name="alignment">
@@ -216,41 +202,6 @@ module Formtastic
                   <option value="wysiwyg-float-left">#{I18n.t("wysihtml5.dialog.image.left")}</option>
                   <option value="wysiwyg-float-right">#{I18n.t("wysihtml5.dialog.image.right")}</option>
                 </select>
-              </div>
-            </div>
-            <div data-tab="1" id="modal-image-upload">
-              <div class="asset-uploader"></div>
-            </div>
-            <div data-tab="1" id="modal-image-gallery">
-              <div class="assets-container">
-                <ul></ul>
-              </div>
-              <div class="optional-inputs">
-                <div class="input string">
-                  <label>#{I18n.t("wysihtml5.dialog.image.alt")}</label>
-                  <input type="text" name="alt" />
-                </div>
-                <div class="input string">
-                  <label>#{I18n.t("wysihtml5.dialog.image.title")}</label>
-                  <input type="text" name="title" />
-                </div>
-                <div class="input radio">
-                  <div class="asset_scale_selection">
-                    <label>#{I18n.t("wysihtml5.dialog.image.scale")}</label>
-                    <label class="option"><input value="full" type="radio" name="scale" checked="checked" /> 100%</label>
-                    <label class="option"><input value="three_quarters" type="radio" name="scale" /> 75%</label>
-                    <label class="option"><input value="half" type="radio" name="scale" /> 50%</label>
-                    <label class="option"><input value="one_quarter" type="radio" name="scale" /> 25%</label>
-                  </div>
-                </div>
-                <div class="input select">
-                  <label>#{I18n.t("wysihtml5.dialog.image.alignment")}</label>
-                  <select name="alignment">
-                    <option value="">default</option>
-                    <option value="wysiwyg-float-left">#{I18n.t("wysihtml5.dialog.image.left")}</option>
-                    <option value="wysiwyg-float-right">#{I18n.t("wysihtml5.dialog.image.right")}</option>
-                  </select>
-                </div>
               </div>
             </div>
           </div>
