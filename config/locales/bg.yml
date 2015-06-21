@@ -1,0 +1,55 @@
+bg:
+  formtastic:
+    wysihtml5:
+      command:
+        bold: "B"
+        italic: "I"
+        underline: "U"
+        link: "Линк"
+        image: "Картинка"
+        video: "Видео"
+        ul: "Неподреден списък"
+        ol: "Подреден списък"
+        source: "Покажи HTML"
+        outdent: "Премахни индентация"
+        indent: "Индентирай"
+      block_style: "стил"
+      blocks:
+        h1: "Заглавие 1"
+        h2: "Заглавие 2"
+        h3: "Заглавие 3"
+        h4: "Заглавие 4"
+        h5: "Заглавие 5"
+        h6: "Заглавие 6"
+        p: "Параграф"
+
+      dialog:
+        cancel: "Отказ"
+        ok: "ОК"
+        image:
+          dialog_title: "Добавяне на нова картинка"
+          url: "URL:"
+          alignment: "Подравняване:"
+          default: "Няма"
+          left: "Вляво"
+          right: "Вдясно"
+          alt: "Име"
+        link:
+          dialog_title: "Добавяне на нов линк"
+          url_title: "URL"
+          email_title: "Имейл"
+          anchor_title: "Котва"
+          url: "URL:"
+          text: "Текст:"
+          title: "Текст при посочване:"
+          email: "Имейл:"
+          anchor: "Име на котва:"
+          blank: "Този линк ще се отвори в отделен таб/страница"
+          your_text_here: "Вашия тескт"
+        video:
+          dialog_title: "Добавяне на видео от youtube или vimeo"
+          url: "URL:"
+          title: "Заглавие:"
+          width: "Широчине:"
+          height: "Височина:"
+          your_text_here: "Заглавие"
