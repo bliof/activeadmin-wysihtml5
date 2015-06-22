@@ -45,7 +45,7 @@ bg:
           email: "Имейл:"
           anchor: "Име на котва:"
           blank: "Този линк ще се отвори в отделен таб/страница"
-          your_text_here: "Вашия тескт"
+          your_text_here: "Вашият тескт"
         video:
           dialog_title: "Добавяне на видео от youtube или vimeo"
           url: "URL:"
