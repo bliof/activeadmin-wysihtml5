@@ -145,10 +145,6 @@ module Formtastic
                 <label>#{I18n.t("wysihtml5.dialog.link.text")}</label>
                 <input type="text" name="text" placeholder="#{I18n.t("wysihtml5.dialog.link.your_text_here")}">
               </div>
-              <div class="input string">
-                <label>#{I18n.t("wysihtml5.dialog.link.title")}</label>
-                <input type="text" name="title">
-              </div>
               <div class="input boolean">
                 <label>
                   <input type="checkbox" name="blank" /> #{I18n.t("wysihtml5.dialog.link.blank")}
