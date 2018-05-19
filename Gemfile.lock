@@ -17,22 +17,11 @@ GIT
       ransack (~> 1.0)
       sass-rails
 
-GIT
-  remote: git://github.com/stefanoverna/activeadmin-dragonfly.git
-  revision: 452da70b194cdda1148ed0119a58a83cafe94f4d
-  branch: master
-  specs:
-    activeadmin-dragonfly (0.0.2)
-      activeadmin
-      dragonfly (= 0.9.15)
-      rack-cache
-
 PATH
   remote: .
   specs:
-    activeadmin-wysihtml5 (1.0.0)
+    activeadmin-wysihtml5 (1.0.1)
       activeadmin
-      activeadmin-dragonfly
 
 GEM
   remote: https://rubygems.org/
@@ -83,9 +72,6 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    dragonfly (0.9.15)
-      multi_json (~> 1.0)
-      rack
     erubis (2.7.0)
     execjs (2.0.2)
     formtastic (2.3.0.rc2)
@@ -118,8 +104,6 @@ GEM
       activerecord (>= 3.0)
     polyglot (0.3.3)
     rack (1.5.2)
-    rack-cache (1.2)
-      rack (>= 0.4)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.2)
@@ -175,8 +159,10 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
-  activeadmin-dragonfly!
   activeadmin-wysihtml5!
   coffee-rails
   sass-rails
   uglifier
+
+BUNDLED WITH
+   1.16.1
